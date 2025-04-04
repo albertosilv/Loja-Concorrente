@@ -1,0 +1,2 @@
+# Loja-Concorrente
+# Loja-Concorrente
