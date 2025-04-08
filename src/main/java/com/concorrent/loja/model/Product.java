@@ -2,6 +2,8 @@ package com.concorrent.loja.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.math.BigDecimal;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Entity
@@ -23,9 +25,12 @@ public class Product {
 
     @Column(nullable = false, precision = 10, scale = 2)
     @JsonProperty("price")
-    private double price;
+    private BigDecimal price;
 
     @Column(nullable = false)
     @JsonProperty("quantity")
     private int quantity;
+
+    @Version
+    private Long version;
 }

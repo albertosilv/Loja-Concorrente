@@ -4,6 +4,8 @@ package com.concorrent.loja.dto;
 import com.concorrent.loja.model.Product;
 import com.fasterxml.jackson.annotation.*;
 import lombok.*;
+
+import java.math.BigDecimal;
 import java.time.*;
 
 @Data
@@ -15,26 +17,12 @@ public class ProductResponseDTO {
 
     private Long id;
     private String name;
-    private Double price;
+    private BigDecimal price;
     private Integer quantity;
     private String descricao;
 
-    @JsonProperty("is_active")
-    private Boolean isActive;
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime dataCriacao;
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime dataAtualizacao;
-
     public ProductResponseDTO(Product product) {
-    }
 
-    // Campos calculados ou derivados
-    @JsonProperty("valor_total_estoque")
-    public Double getValorTotalEstoque() {
-        return price * quantity;
     }
 
 }
